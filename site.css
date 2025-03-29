@@ -1,0 +1,37 @@
+/*
+    Ryan Monnier
+    CSD 340
+    Module 3 
+    29-March-2025
+*/
+
+/* margins */
+#container {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
+h1, h2, h3, h4 {
+    background-color: #1e8d84; 
+    color: rgb(255, 255, 255); 
+    border: 1px solid #0015d6; 
+    padding: 10px;
+}
+
+/* anchor tags */
+a {
+    color: #1e8d84; 
+    text-decoration: none; 
+}
+
+/* anchor hover */
+a:hover {
+    color: #D6A800; 
+}
+
+/* anchor visited */
+a:visited {
+    color: #041296; 
+}
