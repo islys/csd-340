@@ -1,0 +1,102 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    /*background-color: #C4FFE9; /* Light mint green */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #C4EEFF; /* Light sky blue */
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+/* About Section */
+#about {
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #C4FFFD; /* Light turquoise border */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.portrait {
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+#bio {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Hobbies Section */
+#hobbies {
+    background-color: #AEFCC5; /* Soft mint green */
+    padding: 20px;
+}
+
+.hobby-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hobby-item {
+    width: 30%;
+    text-align: center;
+}
+
+.hobby-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Goals Section */
+#goals {
+    background-color: #B2FFFC; /* Light cyan */
+    padding: 20px;
+}
+
+.goal-images {
+    display: flex;
+    justify-content: space-between;
+}
+
+.goal-item {
+    width: 30%;
+    text-align: center;
+}
+
+.goal-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Footer */
+footer {
+    background-color: #C4FFFD; /* Light turquoise */
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+}
