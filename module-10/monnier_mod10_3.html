@@ -1,0 +1,58 @@
+
+<!-- 
+    Ryan Monnier
+    CSD 340
+    Module 10 
+    04-May-2025
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSD 340 Web Development with HTML and CSS</title>
+  <style>
+    img {
+      width: 300px;
+      height: auto;
+      cursor: pointer;
+      border: 2px solid #000;
+      margin-top: 20px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Assignment 10.3: JavaScript - Part 2</h1>
+
+  <p>Welcome to Dizzy and Zumi's gallery.</p>
+  <p>Click the image to display a new random one:</p>
+    <!-- using the onclick mouse event to execute our changeImage() function -->
+  <img id="randomImage" src="images/zum_pup.jpg" alt="Random" onclick="changeImage()">
+
+  <script>
+    // array of images to include in the random function, including the starting image so it can be selected again
+    const images = [
+      "images/diz_birthday.jpg",
+      "images/zum_olympics.jpg",
+      "images/diz_snow.jpg",
+      "images/zum_hamper.jpg",
+      "images/zum_pup.jpg"
+    ];
+    // selects random index of image array
+    function changeImage() {
+      const randomIndex = Math.floor(Math.random() * images.length);
+      document.getElementById("randomImage").src = images[randomIndex];
+    }
+  </script>
+
+</body>
+</html>
