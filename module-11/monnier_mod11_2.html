@@ -1,0 +1,123 @@
+<!-- 
+    Ryan Monnier
+    CSD 340
+    Module 11 
+    10-May-2025
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSD 340 Web Development with HTML and CSS</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #eef2f7;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #333366;
+    }
+    #taskInput {
+      width: 60%;
+      padding: 8px;
+      margin-right: 10px;
+    }
+    .buttons {
+      margin-top: 10px;
+    }
+    .buttons button {
+      padding: 8px 12px;
+      margin-right: 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .buttons button:hover {
+      background-color: #45a049;
+    }
+    #todoList {
+      margin-top: 20px;
+      white-space: pre-line;
+      background-color: #f9f9f9;
+      padding: 15px;
+      border-left: 5px solid #333366;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Assignment 11.2: JavaScript - Part 3</h1>
+    <p>Enter tasks into your to-do list using the buttons below.</p>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <div class="buttons">
+      <button id="button" onclick="addTask()">Add</button>
+      <button onclick="deleteLastTask()">Delete Last Entry</button>
+    </div>
+
+    <div id="todoList"></div>
+  </div>
+
+  <script>
+    const tasks = [];
+
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const task = input.value.trim();
+      if (task === "") {
+        alert("Please enter a task.");
+        return;
+      }
+      tasks.push(task);
+      alert(`Added to position ${tasks.length}: "${task}"`);
+      input.value = "";
+      updateDisplay();
+    }
+
+    function deleteLastTask() {
+      if (tasks.length === 0) {
+        alert("No tasks to delete.");
+        return;
+      }
+      const removed = tasks.pop();
+      alert(`Deleted: "${removed}"`);
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      const listDiv = document.getElementById("todoList");
+      if (tasks.length === 0) {
+        listDiv.textContent = "Your to-do list is empty.";
+        return;
+      }
+      let output = "";
+      tasks.forEach((task, i) => {
+        output += `${i + 1}. ${task}\n`;
+      });
+      listDiv.textContent = output;
+    }
+    /* 
+    enable user to just press enter after typing out a task
+    */
+    var input = document.getElementById("taskInput");
+    input.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("button").click();
+        }
+    });
+  </script>
+</body>
+</html>
