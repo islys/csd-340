@@ -1,0 +1,89 @@
+<!-- 
+    Ryan Monnier
+    CSD 340
+    Module 12 
+    12-May-2025
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSD 340 Web Development with HTML and CSS  </title>
+    <link rel="stylesheet" href="monnier_mod12_2.css">
+</head>
+
+<body>
+    <div id="container">
+        <h1>Assignment 12.2: JavaScript - Part 4</h1> 
+        <div id="left">
+            <h3>Top 10 Favorite Books</h3>
+            <button onclick="sortTopToBottom()">Top to Bottom</button>
+            <button onclick="sortBottomToTop()">Bottom to Top</button>
+            <ol>
+                <li>Ender's Game - Orson Scott Card</li>
+                <li>Redwall - Brian Jacques</li>
+                <li>The Name of the Wind - Patrick Rothfuss</li>
+                <li>Harry Potter - J.K. Rowling</li>
+                <li>Mistborn - Brandon Sanderson</li>
+                <li>The Night Circus - Erin Morgenstern</li>
+                <li>Sabriel - Garth Nix</li>
+                <li>Renegades - Marissa Meyer</li>
+                <li>Gideon the Ninth - Tamsyn Muir</li>
+                <li>Red Rising - Pierce Brown</li>
+            </ol>
+        </div>
+        <div id="right">
+            <h3>5 Things I've Learned Since the Course Started</h3>
+            <ul>
+                <li>The basic html structure</li>
+                <li>The difference between a div ID and div class</li>
+                <li>How to make ordered and unordered lists</li>
+                <li>How to use css files to format html pages</li>
+                <li>A better understanding of github</li>
+            </ul>
+        </div>
+        <div id="bottom">
+            <a href="https://islys.github.io/csd-340/">GitHub</a>
+        </div>
+
+    </div>
+    <h1></h1>
+    <script>
+        function sortTopToBottom() {
+            const list = document.querySelector("#left ol");
+            const items = Array.from(list.children);
+            items.sort((a, b) => a.originalIndex - b.originalIndex);
+
+            // Remove reverse numbering
+            list.removeAttribute("reversed");
+            list.setAttribute("start", 1);
+
+            items.forEach(item => list.appendChild(item));
+        }
+
+        function sortBottomToTop() {
+            const list = document.querySelector("#left ol");
+            const items = Array.from(list.children);
+            items.sort((a, b) => b.originalIndex - a.originalIndex);
+
+            // Apply reverse numbering
+            list.setAttribute("reversed", "");
+            list.setAttribute("start", items.length); // e.g., 10
+
+            items.forEach(item => list.appendChild(item));
+        }
+
+        // Store original index on each item when the page loads
+        window.onload = function() {
+            const items = document.querySelectorAll("#left ol li");
+            items.forEach((li, index) => {
+                li.originalIndex = index;
+            });
+        };
+    </script>
+</body>
+
+</html>
+
